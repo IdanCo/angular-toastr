@@ -268,14 +268,14 @@
       }
 
       function shouldExit() {
-        var isDuplicateOfLast = options.preventDuplicates && map.message === previousToastMessage;
+        var isDuplicateOfLast = options.preventDuplicates && map.title + map.message === previousToastMessage;
         var isDuplicateOpen = options.preventOpenDuplicates && openToasts[map.message];
 
         if (isDuplicateOfLast || isDuplicateOpen) {
           return true;
         }
 
-        previousToastMessage = map.message;
+        previousToastMessage = map.title + map.message;
         openToasts[map.message] = true;
 
         return false;
